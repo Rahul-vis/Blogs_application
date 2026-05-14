@@ -17,9 +17,12 @@
       </div>
       <div>
         {% if user.is_authenticated %}
+        <a href="add-blogs">Add Blogs</a>
+        <a href="all-blogs">All Blogs</a>
+        <a href="my-blogs">My Blogs</a>
         <a href="accounts/logout">Logout</a>
         {% else %}
-        <a href="/">Register</a>
+        <a href="/">SignUp</a>
         <a href="accounts/login">Login</a>
 
         {%endif%}

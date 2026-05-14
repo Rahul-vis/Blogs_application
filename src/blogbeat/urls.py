@@ -18,10 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from userapp.views import *
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",registerView),
     path("home",homeView),
     path("accounts/login/",loginView),
     path("accounts/logout/",logoutView)
-]
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
