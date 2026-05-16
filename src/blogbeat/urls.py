@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from userapp.views import *
+from blogapp.views import *
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -26,5 +27,7 @@ urlpatterns = [
     path("",registerView),
     path("home",homeView),
     path("accounts/login/",loginView),
-    path("accounts/logout/",logoutView)
+    path("accounts/logout/",logoutView),
+
+    path("add-blogs",addBlogView)
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

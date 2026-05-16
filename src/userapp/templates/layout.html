@@ -11,10 +11,19 @@
     
   <header>
     <nav>
-      <div> 
-        <img src="{% static 'images/icon.webp'%}" alt="Logo">
-        
-      </div>
+      <div class="logo-section">
+
+    <img src="{% static 'images/icon.webp' %}" alt="Logo">
+
+    <span class="brand-name">BlogBeat</span>
+
+    {% if user.is_authenticated %}
+        <span class="user-name">
+            Hello {{ request.user.first_name }} !!
+        </span>
+    {% endif %}
+
+</div>
       <div>
         {% if user.is_authenticated %}
         <a href="add-blogs">Add Blogs</a>

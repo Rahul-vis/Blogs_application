@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,login,logout
+
+from blogapp.models import Blog
 # Create your views here.
 
 def registerView(request):
@@ -21,7 +23,8 @@ def registerView(request):
 
 @login_required
 def homeView(request):
-     return render(request,"home.html" ,{"user":request.user});
+     blogs=Blog.objects.all()
+     return render(request,"home.html" ,{"user":request.user , "blogs":blogs} );
 
 
 
