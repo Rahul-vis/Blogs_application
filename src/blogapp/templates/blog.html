@@ -3,16 +3,10 @@
 
 {%block "pagecontent"%}
 
+{%if blog%}
+
 <div class="blog-container">
-
-{% if blogs %}
-
-    {% for blog in blogs %}
-
-    <a style="text-decoration: none;" href="{% url 'view_blog' blog.id %}">
-        
-
-     <div class="blog-card">
+ <div class="blog-card">
 
         <div>
             <img src="{{ blog.blog_image.url }}" alt="">
@@ -34,16 +28,11 @@
         </div>
 
     </div>
-   </a>
 
-    {% endfor %}
-
-{% else %}
-
-    <h2 class="no-blogs">No Blogs Available</h2>
-
-{% endif %}
 
 </div>
 
+{%else%}
+<h1>no blogs</h1>
+{%endif%}
 {% endblock %}

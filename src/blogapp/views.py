@@ -21,3 +21,16 @@ def addBlogView(request):
 
     else:
      return render(request,"blogform.html")
+    
+
+@login_required
+def ViewBlog(request,blog_id):
+   blog=Blog.objects.get(id=blog_id)
+   return render(request,"blog.html",{"blog":blog})
+
+
+@login_required
+def myBlogsView(request):
+    blogs = Blog.objects.filter(user=request.user)
+    return render(request, "myblogs.html", {"blogs": blogs})
+

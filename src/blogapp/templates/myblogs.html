@@ -1,15 +1,16 @@
+
 {% extends "layout.html" %}
 
 
 {%block "pagecontent"%}
 
+<h2>My Blogs</h2>
+
 <div class="blog-container">
 
-{% if blogs %}
+    {% if blogs %}
 
-    {% for blog in blogs %}
-
-    <a style="text-decoration: none;" href="{% url 'view_blog' blog.id %}">
+        {% for blog in blogs %}
         
 
      <div class="blog-card">
@@ -34,15 +35,12 @@
         </div>
 
     </div>
-   </a>
 
-    {% endfor %}
+        {% endfor %}
 
-{% else %}
-
-    <h2 class="no-blogs">No Blogs Available</h2>
-
-{% endif %}
+    {% else %}
+        <h3>No blogs created by you</h3>
+    {% endif %}
 
 </div>
 

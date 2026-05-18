@@ -25,9 +25,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",registerView),
-    path("home",homeView),
+    path("home",homeView,name="all_blogs"),
     path("accounts/login/",loginView),
     path("accounts/logout/",logoutView),
 
-    path("add-blogs",addBlogView)
+    path("add-blogs",addBlogView,name="add_blog"),
+    path("blogs/<int:blog_id>/", ViewBlog, name="view_blog"),
+    path("my-blogs", myBlogsView, name="my_blogs"),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
